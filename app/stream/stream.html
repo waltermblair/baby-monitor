@@ -1,0 +1,4 @@
+<div ng-controller="StreamCtrl">
+    <iframe id="video-stream" ng-src="{{ videoStream.src | trusted }}"></iframe>
+    <audio autoplay ng-src="{{ audioStream.src }}"></audio>
+</div>
