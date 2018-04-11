@@ -8,7 +8,7 @@ describe('myApp.activityLog module', function() {
 
     it('should ....', inject(function($controller) {
       //spec body
-      var ActivityLogCtrl = $controller('ActivityLogCtrl');
+      var ActivityLogCtrl = $controller('ActivityLogController');
       expect(ActivityLogCtrl).toBeDefined();
     }));
 
