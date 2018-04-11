@@ -91,13 +91,13 @@ app/                    --> all of the source files for the application
       interpolate-filter_test.js --> interpolate filter tests
   view1/                --> the view1 view template and logic
     view1.html            --> the partial template
-    stream.js              --> the controller logic
-    stream_test.js         --> tests of the controller
+    stream.component.js              --> the controller logic
+    stream.component.spec.js         --> tests of the controller
   view2/                --> the view2 view template and logic
     view2.html            --> the partial template
-    activity-log.js              --> the controller logic
-    activity-log_test.js         --> tests of the controller
-  app.js                --> main application module
+    activity-log.component.js              --> the controller logic
+    activity-log.component.spec.js         --> tests of the controller
+  app.module.js                --> main application module
   index.html            --> app layout file (the main html template file of the app)
   index-async.html      --> just like index.html, but loads js files asynchronously
 karma.conf.js         --> config file for running unit tests with Karma
@@ -118,7 +118,7 @@ which we run with the [Karma][karma] test runner. We provide a Karma configurati
 
 * The configuration is found at `karma.conf.js`.
 * The unit tests are found next to the code they are testing and have an `_test.js` suffix (e.g.
-  `stream_test.js`).
+  `stream.component.spec.js`).
 
 The easiest way to run the unit tests is to use the supplied npm script:
 

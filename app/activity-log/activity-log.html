@@ -1,9 +1,23 @@
-<input type="text" ng-model="description" placeholder="Activity Description"/>
+<div>
+Create New Activity: <input type="text" ng-model="description" placeholder="Description"/>
 <button ng-click="createActivity()">Create</button>
+</div>
+<div>
+<p>
+    Search For Activity:
+    <input ng-model="$ctrl.query" placeholder="Description" />
+    Sort by:
+    <select ng-model="$ctrl.orderProp">
+        <option value="description">Alphabetical</option>
+        <option value="time">Newest</option>
+    </select>
+</p>
 <button ng-click="readActivities()">Read</button>
+</div>
 <div>
     <ul>
-        <li ng-repeat="activity in testActivities">
+        <li ng-repeat="activity in activities |
+                            filter:$ctrl.query | orderBy:$ctrl.orderProp">
             <p>Description: {{activity.description}}</p>
             <p>Time: {{activity.time}}</p>
         </li>
