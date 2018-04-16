@@ -18,6 +18,7 @@ Create New Activity: <input type="text" ng-model="description" placeholder="Desc
     <ul>
         <li ng-repeat="activity in activities |
                             filter:$ctrl.query | orderBy:$ctrl.orderProp">
+            <a href="#!/activities/{{activity.id}}"><p>Details</p></a>
             <p>Description: {{activity.description}}</p>
             <p>Time: {{activity.time}}</p>
         </li>

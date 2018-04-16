@@ -26,10 +26,9 @@ activityLog.controller('ActivityLogController', function ActivityLogController($
     $scope.readActivities = function() {
         $http.get('http://localhost/angular-mysql/readActivities.php').
            then(function(response) {
-            console.log(response.data);
-            $scope.activities = response.data;
+                $scope.orderProp = 'time';
+                $scope.activities = response.data;
         });
     };
 
-    this.orderProp = 'time';
 });

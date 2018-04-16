@@ -1,1 +1,1 @@
-angular.module('activityLog', []);
+angular.module('activityLog', ['core.activity']);

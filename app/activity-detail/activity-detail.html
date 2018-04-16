@@ -1,0 +1,15 @@
+<div>
+    <h1>Activity Detail</h1>
+    <h4>Edit fields and press submit to update this activity</h4>
+
+    <p>
+        Description: <input type="text" ng-model="description" placeholder="{{$ctrl.activity.description}}" />
+    </p>
+    <p>
+        Time: {{$ctrl.activity.time}}
+    </p>
+    <p>
+        Notes: <input type="text" ng-model="notes" placeholder="{{$ctrl.activity.notes}}" />
+    </p>
+    <button ng-click="$ctrl.updateActivity()">Submit</button>
+</div>
