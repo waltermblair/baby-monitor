@@ -24,7 +24,7 @@
     </tr>
     <tr ng-repeat="activity in activities | filter:$ctrl.query | orderBy:$ctrl.orderProp">
         <td>{{activity.description}}</td>
-        <td>{{activity.time}}</td>
+        <td>{{activity.time | date:'MM/dd/yyyy @ h:mma'}}</td>
         <td>{{activity.notes}}</td>
         <td><a href="#!/activities/{{activity.id}}">Details</a></td>
     </tr>

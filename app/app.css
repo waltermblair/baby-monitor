@@ -29,6 +29,10 @@
     height: 1280px;
 }
 
+#video-stream {
+  
+}
+
 table, th , td {
   border: 1px solid grey;
   border-collapse: collapse;
