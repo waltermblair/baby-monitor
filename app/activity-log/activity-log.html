@@ -1,26 +1,31 @@
 <div>
-Create New Activity: <input type="text" ng-model="description" placeholder="Description"/>
-<button ng-click="createActivity()">Create</button>
+    <h2>Create New Activity:</h2>
+    <input type="text" ng-model="description" placeholder="Description"/>
+    <button ng-click="createActivity()">Create</button>
 </div>
+
 <div>
-<p>
-    Search For Activity:
+    <h2>Search For Activity:</h2>
     <input ng-model="$ctrl.query" placeholder="Description" />
     Sort by:
     <select ng-model="$ctrl.orderProp">
         <option value="description">Alphabetical</option>
         <option value="time">Newest</option>
     </select>
-</p>
-<button ng-click="readActivities()">Read</button>
 </div>
-<div>
-    <ul>
-        <li ng-repeat="activity in activities |
-                            filter:$ctrl.query | orderBy:$ctrl.orderProp">
-            <a href="#!/activities/{{activity.id}}"><p>Details</p></a>
-            <p>Description: {{activity.description}}</p>
-            <p>Time: {{activity.time}}</p>
-        </li>
-    </ul>
-</div>
+
+<h2>Baby Things</h2>
+<table>
+    <tr>
+        <th>Description</th>
+        <th>Time</th>
+        <th>Notes</th>
+        <th>View/Modify</th>
+    </tr>
+    <tr ng-repeat="activity in activities | filter:$ctrl.query | orderBy:$ctrl.orderProp">
+        <td>{{activity.description}}</td>
+        <td>{{activity.time}}</td>
+        <td>{{activity.notes}}</td>
+        <td><a href="#!/activities/{{activity.id}}">Details</a></td>
+    </tr>
+</table>

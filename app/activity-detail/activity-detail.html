@@ -1,15 +1,17 @@
-<div>
-    <h1>Activity Detail</h1>
-    <h4>Edit fields and press submit to update this activity</h4>
-
-    <p>
-        Description: <input type="text" ng-model="description" placeholder="{{$ctrl.activity.description}}" />
-    </p>
-    <p>
-        Time: {{$ctrl.activity.time}}
-    </p>
-    <p>
-        Notes: <input type="text" ng-model="notes" placeholder="{{$ctrl.activity.notes}}" />
-    </p>
-    <button ng-click="$ctrl.updateActivity()">Submit</button>
-</div>
+<h2>Activity Detail</h2>
+<table>
+    <tr>
+        <th>Description</th>
+        <th>Time</th>
+        <th>Notes</th>
+        <th>Submit</th>
+        <th>Delete</th>
+    </tr>
+    <tr>
+        <td><input type="text" ng-model="description" placeholder="{{$ctrl.activity.description}}" /></td>
+        <td>{{$ctrl.activity.time}}</td>
+        <td><input type="text" ng-model="notes" placeholder="{{$ctrl.activity.notes}}" /></td>
+        <td><button ng-click="$ctrl.updateActivity()">Submit</button></td>
+        <td><button ng-click="$ctrl.deleteActivity()">Delete</button></td>
+    </tr>
+</table>

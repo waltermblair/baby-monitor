@@ -22,19 +22,40 @@ activityDetail.controller('ActivityDetailController', function ActivityDetailCon
         params: {activityId: $routeParams.activityId}
     }).then(function (response) {
         self.activity = response.data;
+        $scope.description = self.activity.description;
     });
 
     self.updateActivity = function () {
-        $http({
+        var request = $http({
             url: 'http://localhost/angular-mysql/updateActivity.php',
-            method: "GET",
-            params: {
+            method: "POST",
+            data: {
                 activityId: $routeParams.activityId,
                 description: $scope.description,
                 notes: $scope.notes
+            },
+            headers: {
+                'Content-Type': 'application/json'
             }
         }).then(function (response) {
-            console.log(response.data)
+            console.log(response.data);
+            window.location = "#!/activities";
+        });
+    };
+
+    self.deleteActivity = function () {
+        var request = $http({
+            url: 'http://localhost/angular-mysql/deleteActivity.php',
+            method: "POST",
+            data: {
+                activityId: $routeParams.activityId,
+            },
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function (response) {
+            console.log(response.data);
+            window.location = "#!/activities";
         });
     };
 
