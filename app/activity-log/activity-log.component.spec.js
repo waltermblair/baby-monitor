@@ -1,16 +1,48 @@
 'use strict';
 
-describe('myApp.activityLog module', function() {
+describe('activityLog', function() {
 
-  beforeEach(module('myApp.activityLog'));
+    beforeEach(module('activityLog'));
 
-  describe('activityLog controller', function(){
+    describe('ActivityLogController', function() {
+        var $httpBackend, ctrl, $scope;
 
-    it('should ....', inject(function($controller) {
-      //spec body
-      var ActivityLogCtrl = $controller('ActivityLogController');
-      expect(ActivityLogCtrl).toBeDefined();
-    }));
+        beforeEach(inject(function($componentController, _$httpBackend_) {
+            $httpBackend = _$httpBackend_;
+            $httpBackend
+                .expectGET('http://localhost/angular-mysql/readActivities.php')
+                .respond(200, { foo: 'bar' });
+            $scope = {};
+            ctrl = $componentController('activityLog', {$scope: $scope});
+        }));
 
-  });
+        // http://www.bradoncode.com/blog/2015/06/26/unit-testing-http-ngmock-fundamentals/
+        it('1.2.1 - Activity Log controller calls readActivities.php on page load', function() {
+
+            $httpBackend.flush();
+
+            expect($scope.activities).toEqual({ foo: 'bar' });
+        });
+
+        it('1.2.2 - Activity Log controller posts to createActivity.php and gets from ' +
+            '       readActivities.php after createActivity() is called', function() {
+
+            $httpBackend
+                .expectRoute('POST', 'http://localhost/angular-mysql/createActivity.php')
+                .respond(200);
+
+            $httpBackend
+                .expectGET('http://localhost/angular-mysql/readActivities.php')
+                .respond(200, { foo: 'bar' });
+
+            $scope.createActivity();
+
+            $httpBackend.flush();
+
+            expect($scope.activities).toEqual({ foo: 'bar' });
+        });
+
+
+    });
+
 });

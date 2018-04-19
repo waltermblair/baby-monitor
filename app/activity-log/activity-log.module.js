@@ -1,1 +1,1 @@
-angular.module('activityLog', ['core.activity']);
+angular.module('activityLog', ['ngRoute']);

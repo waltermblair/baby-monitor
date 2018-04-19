@@ -4,39 +4,23 @@
 
 describe('my app', function() {
 
+    describe('Activity Log Navigation', function() {
 
-  it('should automatically redirect to /stream when location hash/fragment is empty', function() {
-    browser.get('index.html');
-    expect(browser.getLocationAbsUrl()).toMatch("/stream");
-  });
+        beforeEach(function() {
+              browser.get('#!/activities');
+        });
 
+        it('1.1.1 - should be reached by Activity Log menu item', function() {
 
-  describe('stream', function() {
+        });
 
-    beforeEach(function() {
-      browser.get('index.html#!/stream');
+        it('1.1.2 - should be reached by Submit button click in Activity Detail', function() {
+
+        });
+
+        it('1.1.3 - reached by Delete button clicks in Activity Detail', function() {
+
+        });
+
     });
-
-
-    it('should render stream when user navigates to /stream', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 1/);
-    });
-
-  });
-
-
-  describe('activity-log', function() {
-
-    beforeEach(function() {
-      browser.get('index.html#!/activity-log');
-    });
-
-
-    it('should render activity-log when user navigates to /activity-log', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 2/);
-    });
-
-  });
 });
