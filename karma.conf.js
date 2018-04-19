@@ -16,14 +16,14 @@ module.exports = function(config) {
         'activity-log/*.js',
         'activity-detail/activity-detail.module.js',
         'activity-detail/activity-detail.component.js',
-        'activity-log/*.js'
+        'activity-detail/*.js'
     ],
 
     autoWatch: true,
 
     frameworks: ['jasmine'],
 
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
     preprocessors: {
       '{activity-detail,activity-log}/!(*spec).js': ['coverage'],

@@ -21,7 +21,6 @@ describe('activityLog', function() {
 
             $httpBackend.flush();
 
-            expect($scope.activities).toEqual({ foo: 'bar' });
         });
 
         it('1.2.2 - Activity Log controller posts to createActivity.php and gets from ' +
@@ -39,7 +38,6 @@ describe('activityLog', function() {
 
             $httpBackend.flush();
 
-            expect($scope.activities).toEqual({ foo: 'bar' });
         });
 
 

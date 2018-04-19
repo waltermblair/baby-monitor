@@ -1,3 +1,1 @@
-angular.module('activityDetail', [
-    'ngRoute'
-]);
+angular.module('activityDetail', ['ngRoute']);

@@ -1,47 +1,58 @@
 'use strict';
 
-describe('activityLog', function() {
+describe('activityDetail', function() {
 
-    beforeEach(module('activityLog'));
+    beforeEach(module('activityDetail'));
 
-    describe('ActivityLogController', function() {
+    describe('ActivityDetailController', function() {
         var $httpBackend, ctrl, $scope;
 
         beforeEach(inject(function($componentController, _$httpBackend_) {
             $httpBackend = _$httpBackend_;
             $httpBackend
-                .expectGET('http://localhost/angular-mysql/readActivities.php')
+                .expectGET('http://localhost/angular-mysql/readActivity.php')
                 .respond(200, { foo: 'bar' });
             $scope = {};
-            ctrl = $componentController('activityLog', {$scope: $scope});
+            ctrl = $componentController('activityDetail', {$scope: $scope});
         }));
 
-        // http://www.bradoncode.com/blog/2015/06/26/unit-testing-http-ngmock-fundamentals/
+        it('2.2.1 - Activity Log controller calls readActivity.php on page load', function() {
+
+            $httpBackend.flush();
+
+        });
+
+
         it('2.3.1 - Activity Detail controller calls updateActivity.php when updateActivity() ' +
             '       is called and sends whatever data were changed in request', function() {
 
             $httpBackend.flush();
 
-            expect($scope.activities).toEqual({ foo: 'bar' });
-        });
-
-        it('1.2.2 - Activity Log controller posts to createActivity.php and gets from ' +
-            '       readActivities.php after createActivity() is called', function() {
-
             $httpBackend
-                .expectRoute('POST', 'http://localhost/angular-mysql/createActivity.php')
+                .expectRoute('POST', 'http://localhost/angular-mysql/updateActivity.php')
                 .respond(200);
 
-            $httpBackend
-                .expectGET('http://localhost/angular-mysql/readActivities.php')
-                .respond(200, { foo: 'bar' });
-
-            $scope.createActivity();
+            ctrl.updateActivity();
 
             $httpBackend.flush();
 
-            expect($scope.activities).toEqual({ foo: 'bar' });
         });
+
+        it('2.4.1 - Activity Detail controller calls deleteActivity.php  when deleteActivity() ' +
+            '       is called', function() {
+
+            $httpBackend.flush();
+
+            $httpBackend
+                .expectRoute('POST', 'http://localhost/angular-mysql/deleteActivity.php')
+                .respond(200);
+
+            ctrl.deleteActivity();
+
+            $httpBackend.flush();
+
+        });
+
 
 
     });
