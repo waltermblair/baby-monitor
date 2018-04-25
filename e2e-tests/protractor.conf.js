@@ -11,6 +11,8 @@ exports.config = {
     'browserName': 'chrome'
   },
 
+  chromeDriver: '/home/walter/.npm-global/lib/node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver_2.38',
+
   baseUrl: 'http://localhost:8000/',
 
   framework: 'jasmine',

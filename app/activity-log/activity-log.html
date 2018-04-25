@@ -15,7 +15,7 @@
 </div>
 
 <h2>Baby Things</h2>
-<table>
+<table id="activitiesTable">
     <tr>
         <th>Description</th>
         <th>Time</th>
@@ -26,6 +26,6 @@
         <td>{{activity.description}}</td>
         <td>{{activity.time | date:'MM/dd/yyyy @ h:mma'}}</td>
         <td>{{activity.notes}}</td>
-        <td><a href="#!/activities/{{activity.id}}">Details</a></td>
+        <td><a id={{activity.id}} href="#!/activities/{{activity.id}}">Details</a></td>
     </tr>
 </table>
